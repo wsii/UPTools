@@ -1,0 +1,230 @@
+{
+    "LevelEditor.MainMenu": {
+        "section": {},
+        "property": {
+            "close_self_only": "",
+            "menu_name": "",
+            "menu_owner": "",
+            "menu_parent": "",
+            "menu_type": "",
+            "prevent_customization": "",
+            "searchable": "",
+            "should_close_window_after_menu_selection": "",
+            "style_name": "",
+            "tool_bar_force_small_icons": "",
+            "tool_bar_is_focusable": "",
+            "tutorial_highlight_name": ""
+        },
+        "entry": {},
+        "sub_menu": {
+            "UPTools": {
+                "init": {
+                    "name": "UPTools",
+                    "label": "UPTools",
+                    "section": "UnrealPythonTools",
+                    "tooltip": "Python自动化工具集"
+                },
+                "property": {
+                    "close_self_only": "",
+                    "menu_name": "",
+                    "menu_owner": "",
+                    "menu_parent": "",
+                    "menu_type": "",
+                    "prevent_customization": "",
+                    "searchable": "",
+                    "should_close_window_after_menu_selection": "",
+                    "style_name": "",
+                    "tool_bar_force_small_icons": "",
+                    "tool_bar_is_focusable": "",
+                    "tutorial_highlight_name": ""
+                },
+                "section": {
+					"Asset":"资产",
+                    "Model": {
+                        "label": "建模",
+                        "insert_name": "",
+                        "insert_type": "DEFAULT"
+                    },
+                    "Anim": "动画",
+                    "FX": "特效",
+                    "Render": "渲染",
+                    "Msic": "杂项",
+                    "Help": "帮助"
+                },
+                "entry": {
+                    "Test": {
+                        "section": "Asset",
+                        "label": "测试按钮",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Test.py\""
+                    },
+                    "model_tool": {
+                        "section": "Model",
+                        "label": "场景摆放工具",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Model/Placer/placer.py\""
+                    },
+                    "skeletal_socket_tool": {
+                        "section": "Anim",
+                        "label": "Socket 自动化添加工具",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Anim/skeletal_socket_tool/skeletal_socket_tool.py\""
+                    },
+                    "fbx_importer": {
+                        "section": "Anim",
+                        "label": "动画导入比较面板",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Anim/FBXImporter/main.py\""
+                    },
+                    "render_tool": {
+                        "section": "Render",
+                        "label": "Sequencer 批量渲染工具",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Render/sequencer_batch_render/render_tool.py\""
+                    },
+                    "launcher": {
+                        "section": "Msic",
+                        "label": "重新启动",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Misc/Restart.py\""
+                    },
+                    "renamer": {
+                        "section": "Msic",
+                        "label": "批量改名工具",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Msic/Renamer/renamer.py\""
+                    },
+                    "document": {
+                        "section": "Help",
+                        "label": "帮助文档",
+                        "type": "PYTHON",
+                        "command": "import webbrowser;webbrowser.open_new_tab('https://docs.unrealengine.com/5.3/en-US/PythonAPI/')"
+                    }
+                }
+            }
+        }
+    },
+    "LevelEditor.LevelEditorToolBar": {
+        "section": {
+            "toolbar_section": {
+                "label": "UPTools",
+                "insert_name": "PluginTools",
+                "insert_type": "AFTER"
+            }
+        },
+        "entry": {
+            "Restart": {
+                "property": {
+                    "type": "TOOL_BAR_BUTTON"
+                },
+                "section": "toolbar_section",
+                "label": "Restart",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Msic/restart_engine.py\""
+            }
+        }
+    },
+    "LevelEditor.MainMenu.File": {
+        "entry": {
+            "Restart": {
+                "property": {
+                    "insert_position": {
+                        "name": "NewProject",
+                        "position": "BEFORE"
+                    }
+                },
+                "section": "FileProject",
+                "label": "Restart",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Msic/restart_engine.py\""
+            }
+        }
+    },
+    "ContentBrowser.AssetContextMenu": {
+        "section": {
+            "asset_section": {
+                "label": "UPTools 资源菜单嵌入测试",
+                "insert_name": "CommonAssetActions",
+                "insert_type": "AFTER"
+            }
+        },
+        "sub_menu": {
+            "py_menu": {
+                "init": {
+                    "label": "UPTools测试",
+                    "section": "asset_section",
+                    "tooltip": "UPTools 资源菜单嵌入测试"
+                },
+                "section": {
+                    "Test": "测试"
+                },
+                "entry": {
+                    "Common": {
+                        "section": "Test",
+                        "label": "演示:资源菜单触发(打印到屏幕)",
+                        "type": "PYTHON",
+                        "command": "unreal.SystemLibrary.print_string(None,'资源菜单触发',text_color=[255,255,255,255])"
+                    }
+                }
+            }
+        }
+    },
+    "ContentBrowser.FolderContextMenu": {
+        "section": {
+            "folder_section": {
+                "label": "UPTools 文件夹菜单嵌入测试",
+                "insert_name": "PathViewFolderOptions",
+                "insert_type": "AFTER"
+            }
+        },
+        "sub_menu": {
+            "py_menu": {
+                "init": {
+                    "label": "UPTools测试",
+                    "section": "folder_section",
+                    "tooltip": "UPTools 文件夹菜单嵌入测试"
+                },
+                "section": {
+                    "Test": "测试"
+                },
+                "entry": {
+                    "Common": {
+                        "section": "Test",
+                        "label": "演示:文件夹菜单触发(打印到屏幕)",
+                        "type": "PYTHON",
+                        "command": "unreal.SystemLibrary.print_string(None,'文件夹菜单触发',text_color=[255,255,255,255])"
+                    }
+                }
+            }
+        }
+    },
+    "ContentBrowser.AddNewContextMenu": {
+        "section": {
+            "new_asset_section": {
+                "label": "UPTools 创建新资源菜单嵌入测试",
+                "insert_name": "ContentBrowserNewAdvancedAsset",
+                "insert_type": "AFTER"
+            }
+        },
+        "sub_menu": {
+            "py_menu": {
+                "init": {
+                    "label": "UPTools测试",
+                    "section": "new_asset_section",
+                    "tooltip": "UPTools 创建新资源菜单嵌入测试"
+                },
+                "section": {
+                    "Test": "测试"
+                },
+                "entry": {
+                    "Common": {
+                        "section": "Test",
+                        "label": "演示:新资源菜单触发(打印到屏幕)",
+                        "type": "PYTHON",
+                        "command": "unreal.SystemLibrary.print_string(None,'新资源菜单触发',text_color=[255,255,255,255])"
+                    }
+                }
+            }
+        }
+    }
+}
