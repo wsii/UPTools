@@ -17,7 +17,7 @@ workingPath = "/Game/"
 class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
     pass
 
-editorAssetLib = GetEditorAssetLibrary();
+editorAssetLib = GetEditorAssetLibrary()
 
 allAssets = editorAssetLib.list_assets(workingPath, True, False)
 
