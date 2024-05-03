@@ -14,10 +14,6 @@ import unreal
 # displacement_uv_channel: 0}>
 
 
-# LogPython: Error: TypeError: MeshNaniteSettings: Failed to convert type 'str' to property 'FallbackTarget' (EnumProperty) for attribute 'fallback_target' on 'MeshNaniteSettings'
-# LogPython: Error:   TypeError: NativizeProperty: Cannot nativize 'str' as 'FallbackTarget' (EnumProperty)
-# LogPython: Error:     TypeError: NativizeEnumEntry: Cannot nativize 'str' as 'NaniteFallbackTarget'
-
 def edit_nanite (static_mesh):
     mesh_nanite_settings = unreal.MeshNaniteSettings()
     mesh_nanite_settings = static_mesh.get_editor_property("nanite_settings")

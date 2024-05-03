@@ -11,7 +11,22 @@
 
 import unreal
 
-workingPath = "/Game/"
+# 获取content 选中的文件夹路径
+selected_folders = unreal.EditorUtilityLibrary.get_selected_folder_paths()
+
+selected_folders_count = 0
+
+if (len(selected_folders) > 0):
+    selected_folders_count = len(selected_folders)
+else:
+    #获取path_view 选中的文件夹路径
+    selected_folders = unreal.EditorUtilityLibrary.get_selected_path_view_folder_paths()
+    selected_folders_count = len(selected_folders)
+
+print(selected_folders)
+
+# workingPath = "/Game/"
+workingPath = selected_folders[0]
 
 
 @unreal.uclass()
@@ -33,7 +48,7 @@ with unreal.ScopedSlowTask(allAssetsCount, selectedAssetPath) as slowTask:
         _assetPathName = _assetData.get_asset().get_path_name()
         _assetClassName = _assetData.get_asset().get_class().get_name()
 
-        _targetPathName = "/Game/%s%s%s%s%s" % (_assetClassName, "/", _assetName, ".", _assetName)
+        _targetPathName = workingPath+"%s%s%s%s%s%s" % ("/",_assetClassName, "/", _assetName, ".", _assetName)
 
 
         editorAssetLib.rename_asset(_assetPathName, _targetPathName)

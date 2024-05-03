@@ -12,29 +12,44 @@
 import unreal
 
 #You can set the prefix of your choice here
-prefixAnimationBlueprint    = "animBP"
-prefixAnimationSequence     = "anim"
-prefixAnimation             = "anim"
-prefixBlendSpace            = "animBlnd"
-prefixBlueprint             = "bp"
-prefixCurveFloat            = "crvF"
-prefixCurveLinearColor      = "crvL"
-prefixLevel                 = "lvl"
-prefixMaterial              = "mat"
-prefixMaterialFunction      = "mat_func"
-prefixMaterialInstance      = "mat_inst"
-prefixParticleSystem        = "fx"
-prefixPhysicsAsset          = "phsx"
-prefixSkeletalMesh          = "sk"
-prefixSkeleton              = "skln"
-prefixSoundCue              = "cue"
-prefixSoundWave             = "wv"
-prefixStaticMesh            = "sm"
-prefixTexture2D             = "tex"
-prefixTextureCube           = "HDRI"
+prefixAnimationBlueprint    = "ABP_"
+prefixAnimationSequence     = "AS_"
+prefixAnimation             = "A_"
+prefixBlendSpace            = "BS_"
+prefixBlueprint             = "BP_"
+prefixCurveFloat            = "CF_"
+prefixCurveLinearColor      = "CL_"
+prefixLevel                 = "L_"
+prefixMaterial              = "M_"
+prefixMaterialFunction      = "MF_"
+prefixMaterialInstance      = "MI_"
+prefixParticleSystem        = "NS_"
+prefixPhysicsAsset          = "PA_"
+prefixSkeletalMesh          = "SKM_"
+prefixSkeleton              = "SK_"
+prefixSoundCue              = "SC_"
+prefixSoundWave             = "SW_"
+prefixStaticMesh            = "SM_"
+prefixTexture2D             = "T_"
+prefixTextureCube           = "HDRI_"
 
 
-workingPath = "/Game/"
+# 获取content 选中的文件夹路径
+selected_folders = unreal.EditorUtilityLibrary.get_selected_folder_paths()
+
+selected_folders_count = 0
+
+if (len(selected_folders) > 0):
+    selected_folders_count = len(selected_folders)
+else:
+    #获取path_view 选中的文件夹路径
+    selected_folders = unreal.EditorUtilityLibrary.get_selected_path_view_folder_paths()
+    selected_folders_count = len(selected_folders)
+
+print(selected_folders)
+
+# workingPath = "/Game/"
+workingPath = selected_folders[0]
 
 @unreal.uclass()
 class GetEditorAssetLibrary(unreal.EditorAssetLibrary):

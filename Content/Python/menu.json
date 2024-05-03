@@ -52,6 +52,12 @@
                     "Help": "帮助"
                 },
                 "entry": {
+                    "launcher": {
+                        "section": "Asset",
+                        "label": "重新启动",
+                        "type": "COMMAND",
+                        "command": "py \"{Content}/Misc/Restart.py\""
+                    },
                     "Test": {
                         "section": "Asset",
                         "label": "测试按钮",
@@ -81,12 +87,6 @@
                         "label": "Sequencer 批量渲染工具",
                         "type": "COMMAND",
                         "command": "py \"{Content}/Render/sequencer_batch_render/render_tool.py\""
-                    },
-                    "launcher": {
-                        "section": "Msic",
-                        "label": "重新启动",
-                        "type": "COMMAND",
-                        "command": "py \"{Content}/Misc/Restart.py\""
                     },
                     "renamer": {
                         "section": "Msic",
@@ -145,7 +145,7 @@
             "asset_section": {
                 "label": "UPTools 资源菜单嵌入测试",
                 "insert_name": "CommonAssetActions",
-                "insert_type": "AFTER"
+                "insert_type": "BEFORE"
             }
         },
         "sub_menu": {
@@ -167,14 +167,22 @@
                     }
                 }
             }
+        },
+        "entry": {
+            "PrintData": {
+                "section": "asset_section",
+                "label": "PrintData",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Assets/Asset_PrintSelectedAssetData.py\""
+            }
         }
     },
     "ContentBrowser.FolderContextMenu": {
         "section": {
             "folder_section": {
-                "label": "UPTools 文件夹菜单嵌入测试",
+                "label": "UPTools",
                 "insert_name": "PathViewFolderOptions",
-                "insert_type": "AFTER"
+                "insert_type": "BEFORE"
             }
         },
         "sub_menu": {
@@ -182,7 +190,7 @@
                 "init": {
                     "label": "UPTools测试",
                     "section": "folder_section",
-                    "tooltip": "UPTools 文件夹菜单嵌入测试"
+                    "tooltip": "UPTools"
                 },
                 "section": {
                     "Test": "测试"
@@ -195,6 +203,32 @@
                         "command": "unreal.SystemLibrary.print_string(None,'文件夹菜单触发',text_color=[255,255,255,255])"
                     }
                 }
+            }
+        },
+        "entry": {
+            "DeleteTM": {
+                "section": "folder_section",
+                "label": "删除贴图材质",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Assets/Asset_DeleteTextureMaterial.py\""
+            },
+            "DeleteUnusedAssets": {
+                "section": "folder_section",
+                "label": "删除无用资产",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Assets/Asset_ReportUnusedAssets.py\""
+            },
+            "OrganizeAssets": {
+                "section": "folder_section",
+                "label": "整理资产文件夹",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Assets/Asset_OrganizeAssetsPerType.py\""
+            },
+            "PrefixAllAssets": {
+                "section": "folder_section",
+                "label": "整理资产命名",
+                "type": "COMMAND",
+                "command": "py \"{Content}/Assets/Asset_PrefixAllAssets.py\""
             }
         }
     },

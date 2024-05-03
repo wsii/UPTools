@@ -13,11 +13,7 @@ import unreal
 
 workingPath = "/Game/"
 
-@unreal.uclass()
-class GetEditorAssetLibrary(unreal.EditorAssetLibrary):
-    pass
-
-editorAssetLib = GetEditorAssetLibrary()
+editorAssetLib = unreal.EditorAssetLibrary
 
 allAssets = editorAssetLib.list_assets(workingPath, True, False)
 
