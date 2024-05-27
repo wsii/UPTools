@@ -1,4 +1,4 @@
-#5.3 删除贴图、材质
+#5.3 打印选中资产的数据
 import unreal
 
 asset_registry = unreal.AssetRegistryHelpers.get_asset_registry()

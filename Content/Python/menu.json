@@ -208,7 +208,7 @@
         "entry": {
             "DeleteTM": {
                 "section": "folder_section",
-                "label": "删除贴图材质",
+                "label": "删除贴图和材质",
                 "type": "COMMAND",
                 "command": "py \"{Content}/Assets/Asset_DeleteTextureMaterial.py\""
             },
