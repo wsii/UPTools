@@ -11,6 +11,10 @@ import unreal
 import os
 import sys
 
+# 注册python扩展蓝图
+import Misc.PyBPFunctionLibrary
+
+
 import json
 import codecs
 import platform
